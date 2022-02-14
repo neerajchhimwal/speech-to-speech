@@ -14,7 +14,17 @@ cd fairseq
 pip install -e .
 cd ..
 
-downloading the IndicTrans en-indic model 
+# downloading the IndicTrans en-indic model 
 wget https://storage.googleapis.com/vakyaansh-open-models/translation_models/en-indic.zip
 unzip en-indic.zip
+
+# Installing vakyansh-tts and tts_infer package for TTS inference
+
+git clone https://github.com/Open-Speech-EkStep/vakyansh-tts
+cd vakyansh-tts
+bash install.sh
+python setup.py bdist_wheel
+pip install -e .
+cd tts_infer
+gsutil -m cp -r gs://vakyaansh-open-models/translit_models .
 
